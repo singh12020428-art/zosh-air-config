@@ -3,24 +3,65 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/yt_airline_payment_db
+    url: jdbc:mysql://paymentdb:3306/yt_airline_payment_db
     username: root
     password: Shiva2001@
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
+  jpa:
+    hibernate:
+      ddl-auto: update
 
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: kafka:9092
 
 razorpay:
-    api:
-      key: rzp_test_TCHyr6LWdPGGA5
-      secret: VV0O90woaVbfb88sXFJisjMl
-    callback:
-      base-url: http://localhost:5015   # or your frontend/base URL
+  api:
+    key: rzp_test_TCHyr6LWdPGGA5
+    secret: VV0O90woaVbfb88sXFJisjMl
+  callback:
+    base-url: http://localhost:5015
 
 eureka:
   client:
     fetch-registry: true
     register-with-eureka: true
+    service-url:
+      defaultZone: http://service-registry:8761/eureka/
+
   instance:
     prefer-ip-address: true
+
+
+
+
+
+
+
+
+
+#server:
+#  port: 5015
+
+#spring:
+ # datasource:
+  #  url: jdbc:mysql://localhost:3306/yt_airline_payment_db
+   # username: root
+   # password: Shiva2001@
+
+ # kafka:
+  #  bootstrap-servers: localhost:9092
+
+# razorpay:
+  #  api:
+   #   key: rzp_test_TCHyr6LWdPGGA5
+    #  secret: VV0O90woaVbfb88sXFJisjMl
+    #callback:
+     # base-url: http://localhost:5015   # or your frontend/base URL
+
+#eureka:
+ # client:
+  #  fetch-registry: true
+  #  register-with-eureka: true
+  #instance:
+  #  prefer-ip-address: true

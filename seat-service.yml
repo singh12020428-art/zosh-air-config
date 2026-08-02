@@ -3,13 +3,17 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/yt_airline_seat_db
+    url: jdbc:mysql://seatdb:3306/yt_airline_seat_db
     username: root
     password: Shiva2001@
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
+  jpa:
+    hibernate:
+      ddl-auto: update
 
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: kafka:9092
     consumer:
       group-id: seat-service-group
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
@@ -19,5 +23,38 @@ eureka:
   client:
     fetch-registry: true
     register-with-eureka: true
+    service-url:
+      defaultZone: http://service-registry:8761/eureka/
+
   instance:
     prefer-ip-address: true
+
+
+
+
+
+
+
+#server:
+ # port: 5008
+
+# spring:
+ # datasource:
+  #  url: jdbc:mysql://seatdb:3306/yt_airline_seat_db
+   # username: root
+   # password: Shiva2001@
+
+
+#  kafka:
+ #   bootstrap-servers: localhost:9092
+  #  consumer:
+   #   group-id: seat-service-group
+    #  key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    #  value-deserializer: org.springframework.kafka.support.serializer.JacksonJsonDeserializer
+
+# eureka:
+ # client:
+  #  fetch-registry: true
+   # register-with-eureka: true
+ # instance:
+  #  prefer-ip-address: true

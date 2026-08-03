@@ -40,7 +40,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://seatdb:3306/yt_airline_seat_db
+    url: jdbc:mysql://localhost:3306/yt_airline_seat_db
     username: root
     password: Shiva2001@
 

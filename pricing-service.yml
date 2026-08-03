@@ -27,7 +27,7 @@
 
 
 
- server:
+server:
   port: 5006
 
 spring:
